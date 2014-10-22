@@ -16,7 +16,7 @@
 		<caption>Komposisi Batalion</caption>
 		<tbody>
 			<tr>
-				<th>Batalion</th><th>Unit</th><th colspan="2">Jumlah</th><th colspan="2">Komando</th><th>Serangan Jenderal</th>
+				<th>No</th><th>Unit</th><th colspan="2">Jumlah</th><th colspan="2">Komando</th><th>Serangan Jenderal</th>
 				<th>Total Serangan</th><th colspan="2">HP</th>
 				<th colspan="2">Semangat</th><th>Semangat Rate</th><th>EXP</th><th>Kondisi</th>
 			</tr>
@@ -25,15 +25,15 @@
 			<tr><script>SquadRow(3);</script></tr>
 			<tr><script>SquadRow(4);</script></tr>
 			<tr>
-				<th colspan=2><span id="atN">2</span>小隊</th>
-				<td class="solnum" id="solnumAt">9800</td>
-				<td class="solnum" id="solnumAtA">9800</td>
+				<th colspan=2><span id="atN"></span> Jenderal</th>
+				<td class="solnum" id="solnumAt"></td>
+				<td class="solnum" id="solnumAtA"></td>
 				<td colspan="2"></td>
-				<td class="solnum" id="genAtSum">19800</td>
-				<td class="force" id="atFAll">19800</td>
+				<td class="solnum" id="genAtSum"></td>
+				<td class="force" id="atFAll"></td>
 				<th colspan="2"></th>
 				<th colspan="2"></th>
-				<td colspan="2">一戦撃破:(<span id="OneAttack"></span>)</td>
+				<td colspan="2">ATK Mutlak:(<span id="OneAttack"></span>)</td>
 				<th id="attackState">敗北</th>
 			</tr>
 		</tbody>
@@ -41,67 +41,65 @@
 	<table border=0><tr>
 	<td>
 		<table border=0>
-			<caption>経験値補正<span id="expVS1">8</span>%<br>×(1+<span id="expVS2" >0</span>%)</caption>
-			<tr><td>同盟レベル<input id="aLv" type="textr" value="1"></td><td>+<span id="aLvV" class="expV">0</span>%</td></tr>
-			<tr><td><input type="checkbox" id="tozaimuso">東西無双</td><td>+<span id="tozaimusoV" class="expV">0</span>%</td></tr>
-			<tr><td><input type="checkbox" id="expGold">経験値課金</td><td>×<span id="expGoldV" class="expV">0</span>%</td></tr>
+			<caption>Bonus EXP&nbsp;<span id="expVS1">8</span>%<br>×(1+<span id="expVS2" >0</span>%)</caption>
+			<tr><td>Level Aliansi&nbsp;<input id="aLv" type="textr" value="1"></td><td>+<span id="aLvV" class="expV">0</span>%</td></tr>
+			<tr><td><input type="checkbox" id="tozaimuso">Perang Timur vs Barat</td><td>+<span id="tozaimusoV" class="expV">0</span>%</td></tr>
+			<tr><td><input type="checkbox" id="expGold">Fitur Meningkatkan EXP</td><td>×<span id="expGoldV" class="expV">0</span>%</td></tr>
 		</table>
 	</td><td>
-		<table border=0><caption>武将スキル</caption><tr><td align="center">
-		将攻<input class="solnum" id="skgen" value="0">%<br>
-		槍攻<input class="solnum" id="skyari" value="0">%&nbsp;馬攻<input class="solnum" id="skkiba" value="0">%<br>
-		弓攻<input class="solnum" id="skyumi" value="0">%&nbsp;砲攻<input class="solnum" id="skhou" value="0">%<br>
-		器攻<input class="solnum" id="skheiki" value="0">%&nbsp;上級攻<input class="solnum" id="skjou" value="0">%
+		<table border=0><caption>Skill Jenderal</caption><tr><td align="center">
+		Jenderal&nbsp;<input class="solnum" id="skgen" value="0">%<br>
+		Inf&nbsp;<input class="solnum" id="skyari" value="0">%&nbsp;Kav&nbsp;<input class="solnum" id="skkiba" value="0">%<br>
+		Pnh&nbsp;<input class="solnum" id="skyumi" value="0">%&nbsp;Art&nbsp;<input class="solnum" id="skhou" value="0">%<br>
+		Msn&nbsp;<input class="solnum" id="skheiki" value="0">%&nbsp;Elit&nbsp;<input class="solnum" id="skjou" value="0">%
 		</td></tr>
 		</table>
 	</td><td>
-		<table border=0><caption>部隊スキル</caption><tr><td align="center">
-		槍弓馬砲攻<input class="solnum" id="skpyari" value="0">%
+		<table border=0><caption>Taktik Batalion</caption><tr><td align="center">
+		Inf&nbsp;Pnh&nbsp;Kav&nbsp;Art&nbsp;<input class="solnum" id="skpyari" value="0">%
 		<input type="hidden" id="skpyumi" value="0">
 		<input type="hidden" id="skpkiba" value="0">
 		<input type="hidden" id="skphou" value="0">
-		&nbsp;器攻<input class="solnum" id="skpheiki" value="0">%
+		&nbsp;Msn&nbsp;<input class="solnum" id="skpheiki" value="0">%
 		</td></tr>
 		</table>
 	</td
 	</tr></table>	
 </div>
 <div id="st2" class="zone">
-	<h2>攻撃対象</h2>
-	<span>5章☆3-11110は手前が森と鉱山の2種類あり</span>
+	<h2>Target NPC</h2>
+	<span>Season 5 ☆3-11110 ada 2 jenis</span>
 	<table border=0>
-		<caption>攻撃相手設定</caption>
+		<caption>Set target</caption>
 		<tr>
 		<td align="center">
-			<input type="radio" name="enamyType" id="enemyType" value="field" checked="checked">空地
-			<input type="radio" name="enamyType" id="enemyType" value="territory">領地<br>
+			<input type="radio" name="enamyType" id="enemyType" value="field" checked="checked">Tanah Kosong
+			<input type="radio" name="enamyType" id="enemyType" value="territory">Wilayah Baru<br>
 			<select id="fieldType"><script>DispFieldList();</script></select>
 		</td>
 		<td>
-			<input type="radio" id="dist" name="dist" value="xy">XY差指定 &nbsp;X<input type="text" id="divX" class="solnum" value="0">Y<input type="text" id="divY" class="solnum" value="0"><br>
-			<input type="radio" id="dist" name="dist" value="dist" checked="checked">距離指定<input type="text" id="distV" class="force" value="0"><br>
-			<input type="checkbox" id="DistGold" value="G">距離課金 &nbsp;距離補正<span id="distHV">100</span>%
+			<input type="radio" id="dist" name="dist" value="xy">Jarak XY&nbsp;X<input type="text" id="divX" class="solnum" value="0">Y<input type="text" id="divY" class="solnum" value="0"><br>
+			<input type="radio" id="dist" name="dist" value="dist" checked="checked">Jarak<input type="text" id="distV" class="force" value="0"><br>
+			<input type="checkbox" id="DistGold" value="G">Fitur Bantuan Serangan Jarak Jauh&nbsp;&nbsp;&nbsp;Serangan&nbsp;<span id="distHV">100</span>%
 		</td>
 		</tr>
 	</table>
 	<table id="enemytable" border="1">
-		<caption>空地兵力</caption>
+		<caption>Batalion NPC</caption>
 		<tbody id="temple">
-			<tr><th>兵種</th><th colspan=2>兵数</th><th>防御力</th><th>補正防御力</th></tr>
-			<tr heigh=100><td class="force" id="en0">精鋭騎馬</td><td class="solnum" id="enN0">12000</td><td class="solnum" id="enNA0">10000</td><td class="force" id="deF0">3500</td><td class="force" id="squadDe0">3500</td></tr>
 		</tbody>
 	</table>
 </div>
 <div id="st3" class="zone">
-	<h2>戦闘結果</h2>
+	<h2>Hasil</h2>
 	<table border="1">
-		<caption>(補正)戦闘力</caption>
-		<tr><th></th><th>槍</th><th>弓</th><th>馬</th><th>器</th><th>全</th></tr>
-		<tr><th>攻撃力</th><td class="force" id="atHeikayari"></td><td class="force" id="atHeikayumi"></td><td class="force" id="atHeikakiba"></td><td class="force" id="atHeikaheiki"></td><td class="force"><span id="allAttack" class="allF">123050</span></td></tr></td></tr>
-		<tr><th>防御力</th><td class="force" id="deHeikayari"></td><td class="force" id="deHeikayumi"></td><td class="force" id="deHeikakiba"></td><td class="force" id="deHeikaheiki"></td><td class="force"></td></tr>
-		<tr><th>相性補正</th><td class="force" id="Hosyari"></td><td class="force" id="Hosyumi"></td><td class="force" id="Hoskiba"></td><td class="force" id="Hosheiki"></td><td></td></tr>
-		<tr><th>補正防御</th><td class="force" id="deHHeikayari"></td><td class="force" id="deHHeikayumi"></td><td class="force" id="deHHeikakiba"></td><td class="force" id="deHHeikaheiki"></td><td class="force"><span id="allDefence" class="allF">123050</span></td></tr>
-		<tr><th>(単兵科)</th><td class="force" id="oHeikayari"></td><td class="force" id="oHeikayumi"></td><td class="force" id="oHeikakiba"></td><td class="force" id="oHeikaheiki"></td><td></td></tr>
+		<caption>(Koreksi) Kekuatan Batalion</caption>
+		<tr><th></th><th>Inf</th><th>Pnh</th><th>Kav</th><th>Msn</th><th>Semua</th></tr>
+		<tr><th>Serangan</th><td class="force" id="atHeikayari"></td><td class="force" id="atHeikayumi"></td><td class="force" id="atHeikakiba"></td><td class="force" id="atHeikaheiki"></td><td class="force"><span id="allAttack" class="allF"></span></td></tr></td></tr>
+		<tr><th>Pertahanan</th><td class="force" id="deHeikayari"></td><td class="force" id="deHeikayumi"></td><td class="force" id="deHeikakiba"></td><td class="force" id="deHeikaheiki"></td><td class="force"></td></tr>
+		<tr><th>Relasi Param</th><td class="force" id="Hosyari"></td><td class="force" id="Hosyumi"></td><td class="force" id="Hoskiba"></td><td class="force" id="Hosheiki"></td><td></td></tr>
+		<tr><th>Koreksi Pertahanan</th><td class="force" id="deHHeikayari"></td><td class="force" id="deHHeikayumi"></td><td class="force" id="deHHeikakiba"></td><td class="force" id="deHHeikaheiki"></td><td class="force"><span id="allDefence" class="allF"></span></td></tr>
+		<tr><th>(Unit Sejenis)</th><td class="force" id="oHeikayari"></td><td class="force" id="oHeikayumi"></td><td class="force" id="oHeikakiba"></td><td class="force" id="oHeikaheiki"></td><td></td></tr>
 	</table>
 </div>
 
