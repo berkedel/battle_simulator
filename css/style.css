@@ -1,0 +1,32 @@
+h1 {
+    color:red;
+}
+h2 {
+    font-size:large;
+    font-weight:bold;
+}
+th {
+    font-size:small;
+}
+caption {
+    color:blue;
+}
+#aLv {
+    width:1.5em;
+    text-align:center;
+}
+.solnum {
+    width:3em;
+    text-align:center;
+}
+.force {
+    width:5em;
+    text-align:center;
+}
+.hp {
+    width:2em;
+    text-align:center;
+}
+.allF {
+    color:red;
+}
